@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mochammad Haidar Ridho - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #e0e0e0;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 15, 35, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 20px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #00d4ff;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #e0e0e0;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #00d4ff;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: linear-gradient(135deg, #00d4ff, #ff006e);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            z-index: 2;
+            max-width: 800px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid rgba(0, 212, 255, 0.3);
+            margin: 0 auto 2rem;
+            background: rgba(0, 212, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 40px rgba(0, 212, 255, 0.5);
+        }
+        .profile-image img  {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            display: block;
+        }
+        img  {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* border-radius: 50%; */
+            display: block;
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 300;
+            background: linear-gradient(135deg, #00d4ff, #ff006e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+            font-weight: 400;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(0, 212, 255, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        /* Floating shapes */
+        .shape {
+            position: absolute;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .shape:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .shape:nth-child(2) {
+            top: 60%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+
+        .shape:nth-child(3) {
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+
+        /* Sections */
+        .section {
+            padding: 5rem 0;
+            position: relative;
+        }
+
+        .section:nth-child(even) {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        }
+
+        .section:nth-child(odd) {
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 100%);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #e0e0e0;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(135deg, #00d4ff 0%, #ff006e 100%);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* About Section */
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #b0b0b0;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            backdrop-filter: blur(20px);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(255, 0, 110, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 212, 255, 0.2);
+            border-color: rgba(0, 212, 255, 0.5);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #00d4ff, #ff006e);
+            border-radius: 15px;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #e0e0e0;
+            z-index: 1;
+            position: relative;
+        }
+
+        .project-subtitle {
+            color: #00d4ff;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            z-index: 1;
+            position: relative;
+        }
+
+        .project-description {
+            color: #b0b0b0;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+            z-index: 1;
+            position: relative;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            z-index: 1;
+            position: relative;
+        }
+
+        .tech-tag {
+            background: linear-gradient(135deg, #00d4ff, #ff006e);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .click-hint {
+            position: absolute;
+            bottom: 1rem;
+            right: 1rem;
+            background: rgba(0, 212, 255, 0.2);
+            color: #00d4ff;
+            padding: 0.3rem 0.6rem;
+            border-radius: 15px;
+            font-size: 0.7rem;
+            z-index: 1;
+        }
+
+        /* Awards Section */
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .award-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 0, 110, 0.2);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .award-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 0, 110, 0.1), rgba(0, 212, 255, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .award-card:hover::before {
+            opacity: 1;
+        }
+
+        .award-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(255, 0, 110, 0.2);
+            border-color: rgba(255, 0, 110, 0.5);
+        }
+
+        .award-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #00d4ff, #ff006e);
+            border-radius: 15px;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .award-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #e0e0e0;
+            z-index: 1;
+            position: relative;
+        }
+
+        /* Skills Section */
+        .skills-container {
+            /* display: grid; */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-category {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 2rem;
+            gap: 2rem;
+            margin: 50px;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .skill-category h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #e0e0e0;
+            text-align: center;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .skill-item {
+            background: none;
+            padding: 0.3rem;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .skill-item img {
+            width: 80px;
+            /* height: 40px; */
+            object-fit: contain;
+            transition: transform 0.2s ease;
+            filter: brightness(1) contrast(1);
+        }
+
+        .skill-item img:hover {
+            transform: scale(1.1);
+            filter: brightness(1.2);
+        }
+
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            margin: 2% auto;
+            padding: 0;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, #00d4ff, #ff006e);
+            color: white;
+            padding: 1.5rem 2rem;
+            border-radius: 20px 20px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .close {
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+
+        .close:hover {
+            opacity: 0.7;
+        }
+
+        .modal-body {
+            padding: 2rem;
+        }
+
+        .modal-images {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .modal-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #00d4ff, #ff006e);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        .modal-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-section h3 {
+            color: #00d4ff;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .modal-section p {
+            color: #b0b0b0;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .modal-section ul {
+            color: #b0b0b0;
+            margin-left: 1.5rem;
+        }
+
+        .modal-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 100%);
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-link {
+            display: inline-block;
+            padding: 0.8rem;
+            background: rgba(0, 212, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        .social-link:hover {
+            background: rgba(0, 212, 255, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 212, 255, 0.3);
+        }
+        .modal {
+        display: none;
+        position: fixed;
+        z-index: 999;
+        padding-top: 60px;
+        left: 0; top: 0;
+        width: 100%; height: 100%;
+        overflow: auto;
+        background-color: rgba(0,0,0,0.6);
+        }
+
+        .modal-content {
+        background-color: #fff;
+        margin: auto;
+        padding: 20px;
+        width: 80%;
+        max-width: 600px;
+        border-radius: 10px;
+        position: relative;
+        }
+
+        .close-button {
+        color: #aaa;
+        position: absolute;
+        right: 20px; top: 10px;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+        }
+
+        .close-button:hover {
+        color: #000;
+        }
+
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-content {
+                width: 95%;
+                margin: 5% auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">Mochammad Haidar Ridho</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#awards">Awards</a></li>
+                <li><a href="#skills">Skills</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="shape" style="width: 100px; height: 100px; background: rgba(0, 212, 255, 0.1); border-radius: 50%;"></div>
+        <div class="shape" style="width: 150px; height: 150px; background: rgba(255, 0, 110, 0.05); border-radius: 20px; transform: rotate(45deg);"></div>
+        <div class="shape" style="width: 80px; height: 80px; background: rgba(0, 212, 255, 0.08); clip-path: polygon(50% 0%, 0% 100%, 100% 100%);"></div>
+        
+        <div class="hero-content">
+            <div class="profile-image">
+                <img src="img/image.png" alt="profile-photo">
+            </div>
+            <h1>Mochammad Haidar Ridho</h1>
+            <div class="title">Informatics Engineering Student & Full-Stack Developer</div>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>📍</span>
+                    <span>Malang, East Java, Indonesia</span>
+                </div>
+                <div class="contact-item">
+                    <span>📞</span>
+                    <span>+62 8993382377</span>
+                </div>
+                <div class="contact-item">
+                    <span>✉️</span>
+                    <span>mhaidarridho@gmail.com</span>
+                </div>
+                <div class="contact-item" href="https://www.linkedin.com/in/mochammad-haidar-ridho-b86803296/">
+                    <span>🔗</span>
+                    <a style="text-decoration: none; color: white;" href="https://www.linkedin.com/in/mochammad-haidar-ridho-b86803296/">linkedin</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <p>Informatics Engineering student with a GPA >3.80, specializing in full-stack web and mobile development using Flutter, Dart, Laravel, and PHP. I have hands-on experience building custom solutions, from websites and mobile apps for client and competition needs. As a National Champion in scientific writing and top finalist in multiple technology innovation competitions, I combine technical expertise with strong research and communication skills.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title">Projects & Development Experience</h2>
+            <div class="projects-grid">
+                <div class="project-card" onclick="openProjectModal('eatery')">
+                    <div class="project-image">
+                        <img src="img/eatery.png" alt="eatery">
+                    </div>
+                    <div class="project-title">Eatery Platform</div>
+                    <div class="project-subtitle">2nd Place Winner – SDGs Hackathon</div>
+                    <div class="project-description">
+                        Designed and built "Eatery", a web platform connecting food donors with people in need. State University of Malang
+                    </div>
+                    <div class="tech-tags">
+                        <span class="tech-tag">MySQL</span>
+                        <span class="tech-tag">HTML/CSS</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">PHP</span>
+                    </div>
+                    <!-- <div class="click-hint">Click for details</div> -->
+                </div>
+
+                <div class="project-card" onclick="openProjectModal('robot')">
+                    <div class="project-image">
+                        <img src="img/national_krsbih.png" alt="">
+                    </div>
+                    <div class="project-title">Humanoid Soccer Robot</div>
+                    <div class="project-subtitle">National Finalist - Indonesian Robot Contest (KRI)</div>
+                    <div class="project-description">
+                        Responsible for motion and maneuvering in Humanoid Soccer Robot. Developed real-time communication using UDP for GameController match state response.
+                    </div>
+                    <div class="tech-tags">
+                        <span class="tech-tag">C++</span>
+                        <span class="tech-tag">ROS</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">UDP Sockets</span>
+                    </div>
+                    <!-- <div class="click-hint">Click for details</div> -->
+                </div>
+                <div class="project-card" onclick="openProjectModal('robot-2')">
+                    <div class="project-image">
+                        <img src="img/research.png" alt="">
+                    </div>
+                    <div class="project-title">Humanoid Soccer Robot</div>
+                    <div class="project-subtitle">Robotic Team</div>
+                    <div class="project-description">
+                        Inter-robot communication system using Received Signal Strength Indicator (RSSI)
+                    </div>
+                    <div class="tech-tags">
+                        <span class="tech-tag">C++</span>
+                        <span class="tech-tag">ROS</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">UDP Sockets</span>
+                    </div>
+                    <!-- <div class="click-hint">Click for details</div> -->
+                </div>
+
+                <div class="project-card" onclick="openProjectModal('agrarix')">
+                    <div class="project-image">
+                        <img src="img/agrarixx.png" alt="agrarix-mobile-app">
+                    </div>
+                    <div class="project-title">Agrarix Smart Agriculture</div>
+                    <div class="project-subtitle">Top 10 National Finalist – Hackfest 2025</div>
+                    <div class="project-description">
+                        Built a mobile-first platform empowering farmers with community-driven learning, real-time trading insights, and expert-led training with dual-tiered course system.
+                    </div>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Flutter</span>
+                        <span class="tech-tag">Firebase</span>
+                        <span class="tech-tag">Dart</span>
+                        <span class="tech-tag">Firestore</span>
+                    </div>
+                    <!-- <div class="click-hint">Click for details</div> -->
+                </div>
+
+                <div class="project-card" onclick="openProjectModal('idea')">
+                    <div class="project-image">
+                        <img src="img/idea.png" alt="idea-mobile-app">
+                    </div>
+                    <div class="project-title">IDEA Mobile App</div>
+                    <div class="project-subtitle">Client-Based Information Systems Project</div>
+                    <div class="project-description">
+                        Developed mobile application supporting UM's Magister and Doctoral programs selection process with event browsing and monitoring capabilities.
+                    </div>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Flutter</span>
+                        <span class="tech-tag">Dart</span>
+                        <span class="tech-tag">Supabase</span>
+                    </div>
+                    <!-- <div class="click-hint">Click for details</div> -->
+                </div>
+
+                <div class="project-card" onclick="openProjectModal('ceramic')">
+                    <div class="project-image">
+                        <img src="img/cad.png" alt="ceramic-art-dinoyo">
+                    </div>
+                    <div class="project-title">Ceramic Art Dinoyo Website</div>
+                    <div class="project-subtitle">Fullstack Developer - Client Project</div>
+                    <div class="project-description">
+                        Company profile website for Kampung Wisata Keramik Dinoyo with online reservation, virtual tour, AI chatbot, and marketplace features.
+                    </div>
+                    <div class="tech-tags">
+                        <span class="tech-tag">MySQL</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">HTML/CSS</span>
+                        <span class="tech-tag">PHP</span>
+                        <span class="tech-tag">Gemini API</span>
+                    </div>
+                    <!-- <div class="click-hint">Click for details</div> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards Section -->
+    <section id="awards" class="section">
+        <div class="container">
+            <h2 class="section-title">Honors & Awards</h2>
+            <div class="awards-grid">
+                <div class="award-card" onclick="openAwardModal('beasiswa')">
+                    <div class="award-image">
+                        <img src="img/beasiswa_unggulan.png" alt="">
+                    </div>
+                    <div class="award-title">Awardee Beasiswa Unggulan 2024</div>
+                    <div class="award-subtitle">Recipient of the 2024 Beasiswa Unggulan</div>
+                    <p>State University of Malang | 2024</p>
+                    <!-- <div class="click-hint">Click for details</div> -->
+                </div>
+                <div class="award-card" onclick="openAwardModal('scientific')">
+                    <div class="award-image">
+                        <img src="img/LKTI.jpg" alt="">
+                    </div>
+                    <div class="award-title">1st Place Winner Technology Theme and 2nd Place Winner KTI</div>
+                    <div class="award-subtitle">Scientific Writing Competition in Technology and Information Systems</div>
+                    <p>State University of Malang Robotics Team | Aug 2024 - Nov 2024</p>
+                    <!-- <div class="click-hint">Click for details</div> -->
+                </div>
+
+                <div class="award-card" onclick="openAwardModal('sdgs')">
+                    <div class="award-image">
+                        <img src="img/HackathonSDGs.jpg" alt="Hackathon">
+                    </div>
+                    <div class="award-title">2nd Place Winner</div>
+                    <div class="award-subtitle">SDGs Hackathon</div>
+                    <p>State University of Malang | Jun 2024</p>
+                    <!-- <div class="click-hint">Click for details</div> -->
+                </div>
+
+                <div class="award-card" onclick="openAwardModal('kri')">
+                    <div class="award-image">
+                        <img src="img/KRSBIH.JPG" alt="">
+                    </div>
+                    <div class="award-title">National Finalist</div>
+                    <div class="award-subtitle">Indonesian Robot Contest (KRI) - Humanoid Soccer Robot Division</div>
+                    <p>State University of Malang Robotics Team | Jul 2024</p>
+                    <!-- <div class="click-hint">Click for details</div> -->
+                </div>
+
+                <div class="award-card" onclick="openAwardModal('hackfest')">
+                    <div class="award-image">
+                        <img src="img/Hackfest.jpg" alt="Hackfest">
+                    </div>
+                    <div class="award-title">Top 10 National Finalist</div>
+                    <div class="award-subtitle">Hackfest 2025</div>
+                    <p>Ciputra University | Mar 2025 – Apr 2025</p>
+                    <!-- <div class="click-hint">Click for details</div> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title">Skills & Keahlian Teknologi</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Languages & Frameworks</h3>
+                        <div class="skill-list">
+                            <span class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/cplusplus.svg" alt="C++" title="C++">
+                            </span>
+                            <span class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/python.svg" alt="Python" title="Python">
+                            </span>
+                            <span class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/html5.svg" alt="HTML" title="HTML">
+                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/css3.svg" alt="CSS" title="CSS">
+                            </span>
+                            <span class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/laravel.svg" alt="Laravel" title="Laravel">
+                            </span>
+                            <span class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/php.svg" alt="PHP" title="PHP">
+                            </span>
+                            <span class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/dart.svg" alt="Dart" title="Dart">
+                            </span>
+                            <span class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/flutter.svg" alt="Flutter" title="Flutter">
+                            </span>
+                            <span class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/firebase.svg" alt="Firebase" title="Firebase">
+                            </span>
+                            <span class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/supabase.svg" alt="Supabase" title="Supabase">
+                            </span>
+                            <span class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/mysql.svg" alt="MySQL" title="MySQL">
+                            </span>
+                            <span class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/git.svg" alt="git" title="git">
+                            </span>
+                            <span class="skill-item">
+                            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/github.svg" alt="GitHub" title="GitHub">
+                            </span>
+                        </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Robotics & AI</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">ROS</span>
+                        <span class="skill-item">OpenCV</span>
+                        <span class="skill-item">Motion</span>
+                        <span class="skill-item">UDP Communication</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Soft Skills</h3>
+                    <div class="skill-list">
+                        <span class="skill-item">Critical Thinking</span>
+                        <span class="skill-item">Technical Writing</span>
+                        <span class="skill-item">Team Collaboration</span>
+                        <span class="skill-item">Problem Solving</span>
+                        <span class="skill-item">Public Speaking</span>
+                        <span class="skill-item">Research Communication</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <a href="mailto:mhaidarridho@gmail.com" class="social-link">✉️</a>
+                <a href="tel:+6289933382377" class="social-link">📞</a>
+                <a href="https://www.linkedin.com/in/mochammad-haidar-ridho-b86803296/" class="social-link">💼</a>
+                <a href="#" class="social-link">🔗</a>
+            </div>
+            <p>&copy; 2025 Mochammad Haidar Ridho. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 id="modal-title">Judul Project</h2>
+            <h4 id="modal-subtitle">Subjudul</h4>
+            <p id="modal-description">Deskripsi lengkap project akan tampil di sini.</p>
+            <div id="modal-tech-tags"></div>
+        </div>
+    </div>
+
+
+    <script>
+        const modal = document.getElementById("projectModal");
+        const modalTitle = document.getElementById("modal-title");
+        const modalSubtitle = document.getElementById("modal-subtitle");
+        const modalDescription = document.getElementById("modal-description");
+        const modalTechTags = document.getElementById("modal-tech-tags");
+        const closeButton = document.querySelector(".close-button");
+
+        document.querySelectorAll(".project-card").forEach(card => {
+            card.addEventListener("click", () => {
+            // Ambil isi dari card yang diklik
+            modalTitle.textContent = card.querySelector(".project-title").textContent;
+            modalSubtitle.textContent = card.querySelector(".project-subtitle").textContent;
+            modalDescription.textContent = card.querySelector(".project-description").textContent;
+            
+            // Ambil tag teknologi
+            modalTechTags.innerHTML = ""; // clear existing
+            card.querySelectorAll(".tech-tag").forEach(tag => {
+                const span = document.createElement("span");
+                span.className = "tech-tag";
+                span.textContent = tag.textContent;
+                modalTechTags.appendChild(span);
+            });
+
+            modal.style.display = "block";
+            });
+        });  
+        document.querySelectorAll(".award-card").forEach(card => {
+        card.addEventListener("click", () => {
+            // Ambil data dari award-card
+            const title = card.querySelector(".award-title")?.textContent || "";
+            const subtitle = card.querySelector(".award-subtitle")?.textContent || "";
+            const description = card.querySelector("p")?.textContent || "";
+
+            modalTitle.textContent = title;
+            modalSubtitle.textContent = subtitle;
+            modalDescription.textContent = description;
+
+            // Kosongkan tech tags jika dari award
+            modalTechTags.innerHTML = "";
+
+            modal.style.display = "block";
+        });
+        });
+        // Close modal when clicking on close button or outside the modal
+
+
+        closeButton.onclick = () => {
+            modal.style.display = "none";
+        };
+
+        window.onclick = event => {
+            if (event.target == modal) {
+            modal.style.display = "none";
+            }
+        };
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                // nav.style.background = 'rgba(255, 255, 255, 0.98)';
+                nav.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                // nav.style.background = 'rgba(255, 255, 255, 0.95)';
+                nav.style.boxShadow = 'none';
+            }
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and sections
+        document.querySelectorAll('.project-card, .award-card, .skill-category').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
